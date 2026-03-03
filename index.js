@@ -58,7 +58,7 @@ async function getAIReply(messages) {
   try {
     const res = await axios.post(
       'https://api.groq.com/openai/v1/chat/completions',
-      { model: 'llama3-8b-8192', messages, max_tokens: 300 },
+      { model: 'openai/gpt-oss-120b', messages, max_tokens: 300 },
       { headers: { 'Authorization': `Bearer ${process.env.GROQ_API_KEY}`, 'Content-Type': 'application/json' } }
     );
     return res.data.choices[0].message.content;
